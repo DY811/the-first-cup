@@ -1,0 +1,22 @@
+Fonts bundled with this page
+============================
+
+Lilita One
+  Designer: Juan Pablo del Peral (Huerta Tipografica)
+  License: SIL Open Font License 1.1
+  Source:  https://fonts.google.com/specimen/Lilita+One
+
+Inter
+  Designer: Rasmus Andersson
+  License: SIL Open Font License 1.1
+  Source:  https://fonts.google.com/specimen/Inter
+
+Both fonts are licensed under the SIL Open Font License, Version 1.1,
+which permits use, study, modification and redistribution, including
+embedding in web pages.
+
+Full licence text: https://openfontlicense.org/
+
+Only the latin and latin-ext subsets are bundled. The latin-ext files are
+declared with a unicode-range so browsers fetch them only if the page
+needs a character outside basic latin.
