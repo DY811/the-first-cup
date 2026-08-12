@@ -204,15 +204,19 @@ section,footer{padding:calc(var(--gap) * .6) clamp(1.2rem,5vw,4rem)}
 
 /* ORDER IT → WATCH IT。器具が2色の面をまたぎ、次章の色へ切り替える。 */
 .watch-divider-stage{position:relative; z-index:1; width:100%; max-width:none;
-  /* 画像全高ではなく、alpha が存在する最下端 y=848 を基準にする。
-     絵は削らず、PNG下部の透明余白だけを詰める。 */
-  height:min(1320px,max(720px,calc(58.43vw + 18px))); margin:0; overflow:clip;
+  /* ★高さは表示中の画像 equipments-divider-baked.webp の実比率から出す。
+     1473x900 → 絵は下端まで届く（900/1473 = 61.10%）。sticky 幅 101.5vw なので
+     表示高 = 101.5 * 0.6110 = 62.02vw。
+     ★旧値 58.43vw は差し替え前の equipments.png（絵の下端 y=848 = 57.57%）の値で、
+     baked に替えた後もそのままだったため下が 28〜42px 切れていた（2026-08-12 修正）。
+     min(1320px,…) は付けない（幅 2128px 超で再び切れる）。 */
+  height:max(720px, 62.02vw); margin:0; overflow:clip;
   display:flex; justify-content:center; align-items:flex-start;
   /* 半透明の縁に濃色が透けると汚れて見えるため、画像の背後は最後までクリーム。
      WATCH IT の色は、このstageが完全に終わった次のsectionから始める。 */
   background:var(--cream)}
 .watch-divider-sticky{position:sticky; z-index:1; top:0; flex:0 0 auto;
-  width:101.5vw; max-width:none; padding-bottom:clamp(58px,6vw,86px)}
+  width:101.5vw; max-width:none; padding-bottom:0}
 /* 色面の上端は、equipments.webp の透明度から採った実際の下端輪郭。 */
 .watch-divider-sticky::after{content:""; position:absolute; z-index:-1; top:100%; left:50%;
   width:100vw; height:110vh; transform:translateX(-50%); background:var(--watch-bg)}
